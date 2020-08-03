@@ -10,11 +10,7 @@ const dotenv =require('dotenv')
 
 dotenv.config()
 //connect to the mongo database
-<<<<<<< HEAD
 mongoose.connect('mongodb://localhost/formdb' || process.env.MONGODB_URI,{
-=======
-mongoose.connect('mongodb://localhost/formdb' || process.env.MONGODB_URL,{
->>>>>>> 01e208032ec15543a98a3e8dedea7f798e5559ac
 useNewUrlParser: true,
 useUnifiedTopology: true
 })
@@ -43,20 +39,14 @@ app.use('/user',require('./routes/form.js'))
 //next we serve static files from the  frontend which are in the build folder
 //however this should only be served during deployment and not production
 if(process.env.NODE_ENV === 'production'){
-<<<<<<< HEAD
 	  app.use(express.static(__dirname,'client/build'))
 
 	 // app.get('*',(req,res)=>{
 	  //	res.sendFile(path.join(__dirname,'client','build','index.html'))
 	  //})
-=======
 	  app.use(express.static( 'client', 'build'))
 
-	  app.get('*',(req,res)=>{
-	  	res.sendFile(path.join(__dirname,'client','build','index.html'))
-	  })
->>>>>>> 01e208032ec15543a98a3e8dedea7f798e5559ac
-
+	 
 
 }
 //after our routes then we listen at the port
