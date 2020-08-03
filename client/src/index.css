@@ -1,0 +1,232 @@
+body {
+  margin: 0;
+  font-family: 'Montserrat';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+/* we begin mobile first so the code below is for mobile layout*/
+.container{
+	justify-content: center;
+	align-content: center;
+}
+/*this puts the title in the center*/
+.title{
+	padding:0px 65px;
+}
+/*this 20% is very key for the content to have an equal padding on bith sides
+if you change it the labels and input will start to be on the same time destroying the alignement*/
+.content{
+	padding:0 17%;
+	width:60%;
+}
+label{
+	line-height:22px;
+	font-size: 18px;
+	display:block;
+}
+input{
+    background:#f6f6f6;
+   border:1px solid #e5e5e5;
+   margin: 18px 0px;
+   height:37px;
+   line-height: 20px;
+   padding:0px 10px;
+   font-size:17px;
+}
+/*this is specifically for the three similar inputs for the top 3 expenditures
+for our user,since they are for one question,they should be closer so i reduced the margin*/
+.expenditure{
+	margin:10px 0px;
+	display:block;
+}
+.error{
+	color:red;
+	display: block;
+	margin-top: -10px;
+	margin-bottom: 10px;
+}
+
+/*when u focus on a cetain input its border color changes*/
+
+input:focus {
+	border: 1px solid #853D82;
+}
+.next{
+	background: #853d82;
+	color:#fff;
+	border-radius: 5px;
+	width:116px;
+	height:32px;
+	line-height: 22px;
+	font-size:18px;
+	margin-left: 0px;
+	display:block;
+	/*this gives the buttons some space from the bottom*/
+	margin-bottom: 20px;
+}
+.prev{
+	/*the properies given below give us the ability for the prev button to be inline with the next button*/
+	margin-left:130px;
+	margin-top:12px;
+	margin-bottom: -32px;
+}
+/*this is for our submit button*/
+.submit{
+    background:#fff ;
+	color: #853d82;
+	border-radius: 5px;
+	width:116px;
+	height:32px;
+	line-height: 22px;
+	font-size:18px;
+	box-shadow:;
+	margin-top:50px;
+	margin-left:16%;
+}
+/*this is for the message just before submission*/
+.message{
+	line-height: 27px;
+	font-size:20px;
+}
+
+.aspirations{
+	margin:20px;
+}
+.required{
+	color:red;
+	font-size:18px;
+}
+
+/*this is big phone to tablet*/
+@media only screen and (min-width: 465px) {
+  body {
+    background-color: #fff;
+
+  }
+  /*everything is aligned in the center with equal padding on each side*/
+  .container{
+  	align-items: center;
+  	margin:5% 10%;
+  	/*10 from top and bottom and 1px from left and right*/
+    padding:10px 1px;
+    padding-bottom: 30px
+
+}
+.title{
+	font-size: 25px;
+	/*this ensures that it is in the centerof the page*/
+	text-align-last: center
+}
+.content{
+	/*this ensures that our form is in the center of our page*/
+	align-self: center
+}
+label{
+	line-height:22px;
+	font-size: 22px;
+	display:block;
+}
+/*this is for the input where the user writes*/
+input{
+       height:40px;
+       line-height: 22px;
+       font-size:22px;
+       width:300px;
+       border:1px solid #e5e5e6;
+       margin:28px 0px;
+
+}
+.next{
+	font-size: 25px;
+	width:125px;
+	line-height: 25px;
+	height:38px;
+	font-weight: 430;
+}
+
+/*in this  case  i want the radio buttons to be exactly in line with all the other input elemets*/
+.radio{
+	margin-left: 2px
+}
+/*this is astyling for top 3 expenditures*/
+.expenditure{
+	margin:10px 0px;
+	display:block;
+}
+/*this allows the button to be inline prev button to be inline with the next button to the acurate,so dont change it*/
+.prev{
+	margin-bottom: -39px
+}
+}
+
+
+
+
+
+/*this is for desktops*/
+@media only screen and (min-width: 780px) {
+  body {
+    background-color: #fff;
+
+  }
+  /*everything is aligned in the center with equal padding on each side*/
+  .container{
+  	align-items: center;
+  	margin:5% 15%;
+  	/*10 from top and bottom and 20px from left and right*/
+    padding:10px 0px;
+    padding-bottom: 30px;
+    border:2px solid #e5e5e5;
+
+}
+.title{
+	font-size: 25px;
+	text-align-last: center
+}
+.content{
+	width:65%;
+	padding:0% 17%;
+
+}
+label{
+	line-height:18px;
+	font-size: 16px;
+	/*this ensures that the label is on a different line from the input*/
+	display:block;
+}
+input{
+       height:34px;
+       line-height: 16px;
+       font-size:18px;
+       width:300px;
+       border:1px solid #e5e5e6;
+       margin:15px 0px;
+
+}
+.next{
+	font-size: 20px;
+	width:120px;
+	line-height: 20px;
+	height:30px;
+	font-weight: 400;
+}
+/*this is to ensure that the radio buttons are inline with the other inputs*/
+.radio{
+	margin-left: 0%
+}
+.expenditure{
+	display:block;
+	margin-left:0%;
+}
+.submit{
+	margin-left:40%;
+}
+.prev{
+	margin-bottom: -32px
+}
+}
