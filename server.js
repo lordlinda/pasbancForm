@@ -39,7 +39,7 @@ app.use('/user',require('./routes/form.js'))
 //next we serve static files from the  frontend which are in the build folder
 //however this should only be served during deployment and not production
 if(process.env.NODE_ENV === 'production'){
-	  app.use(express.static(__dirname,'client/build'))
+	  app.use(express.static(path.join(__dirname,'client/build')))
 
 	 // app.get('*',(req,res)=>{
 	  //	res.sendFile(path.join(__dirname,'client','build','index.html'))
@@ -49,6 +49,7 @@ if(process.env.NODE_ENV === 'production'){
 	 
 
 }
+
 //after our routes then we listen at the port
 //we dont hard code the  port because on deployment because the port may change depending on the port assigned
 const port = process.env.PORT || 5000
