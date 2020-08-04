@@ -83,12 +83,12 @@ export const reset=()=>{
 /*this is responsible for sending data to the backend*/
 export const getData=(data)=>{
 	//console.log(data)
-	return async dispatch=>{
-		await axios
-		.post('/user',data)
-		.then(res=>{
+	//return  dispatch=>{
+		//await axios
+		//.post('/user',data)
+		//.then(res=>{
 			console.log(res.data)
-		})
+		//})
 
-	}
+	//}
 }
