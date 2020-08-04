@@ -15,12 +15,12 @@ const styles ={
 function Pagesix(props){
   const { register,handleSubmit} = useForm();
   //this function submits all our data
-	const onSubmit=async(data)=>{
+	const onSubmit=(data)=>{
 		//console.log(data)
 		//so we are sending our data to the global store
 		props.stepsix(data)
 		 //just before we reset data  we send our data to the backend
-        await props.getData(props.formdata)
+        props.getData(props.formdata)
 		//after ensuring the data has been authenticated can someone move to the next page		
 		props.handleNext()
 	}

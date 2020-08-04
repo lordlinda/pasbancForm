@@ -10,7 +10,7 @@ const dotenv =require('dotenv')
 
 dotenv.config()
 //connect to the mongo database
-mongoose.connect('mongodb://localhost/formdb' || process.env.MONGODB_URI,{
+mongoose.connect('mongodb://localhost/formDB' || process.env.MONGODB_URI,{
 useNewUrlParser: true,
 useUnifiedTopology: true
 })
