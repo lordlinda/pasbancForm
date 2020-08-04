@@ -11,7 +11,7 @@
     "node": "v8.10.0"
   },
   "scripts": {
-    "start": "node server",
+    "start": "node server"
   },
   "author": "lord linda",
   "license": "ISC",
