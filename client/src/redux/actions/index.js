@@ -93,7 +93,15 @@ export const reset=()=>{
 /*this is responsible for sending data to the backend*/
 export const getData=(data)=>{
 	console.log(data)
-	return{
-		 //console.log(data)
+	return dispatch=>{
+		axios.post('/user/',data)
+		.then(res=>{
+			dispatch({
+				type:'send data',
+				payload:res.data
+			})
+		}).catch(err=>{
+			console.log(err)
+		})
 	}
 }
