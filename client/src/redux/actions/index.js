@@ -87,7 +87,7 @@ export const getData=(data)=>{
 		//await axios
 		//.post('/user',data)
 		//.then(res=>{
-			console.log(res.data)
+			//console.log(res.data)
 		//})
 
 	//}
