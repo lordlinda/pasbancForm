@@ -11,7 +11,9 @@
     "node": "v8.10.0"
   },
   "scripts": {
-    "start": "node server"
+    "start": "node server",
+     "heroku-postbuild": "cd client && npm install && npm run build"
+
   },
   "author": "lord linda",
   "license": "ISC",
