@@ -55,10 +55,10 @@ function Main(props){
     const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
- const Reset=()=>{
+ const Reset=async()=>{
   //console.log('data sent')
   //just before we reset data  we send our data to the backend
-  props.getData(props.data)
+  await props.getData(props.data)
   //this resets all the data back to empty strings
   props.reset()
   //we send it back to the first step
