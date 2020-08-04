@@ -15,7 +15,7 @@ useNewUrlParser: true,
 useUnifiedTopology: true
 })
 .then(console.log('connected to mongodb successfully'))
-.catch(err=>console.log('just an issue with mongo'))
+.catch(err=>console.log('just an issue with mongo',err))
 //then we instatiate the express app
 //we are calling it app ,a function of app
 const app=express()
