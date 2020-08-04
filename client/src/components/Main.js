@@ -3,18 +3,20 @@ import {Stepper} from '@material-ui/core'
 import {connect} from 'react-redux'
 
 
-import Pagetwo from './Pagetwo.js'
-import Pageone from './Pageone.js'
+import Pageone from './Page1.js'
+import Pagetwo from './Page2.js'
 import Pagethree from './Page3.js'
 import Pagefour from './Page4.js'
 import Pagefive from './Page5.js'
 import Pagesix from './Page6.js'
+import Pageseven from './Page7.js'
+import Message from './EndMessage.js'
 import * as actions from '../redux/actions/index.js'
 
 
 //this function shows up the number of steps to complete the multi-step form
 function getSteps() {
-  return ['step 1', 'step 2', 'step 3','step 4','step 5','step 6'];
+  return ['step 1', 'step 2', 'step 3','step 4','step 5','step 6','step 7'];
 }
 
 
@@ -36,6 +38,8 @@ function Main(props){
      return <Pagefive handleBack={handleBack} handleNext={handleNext}/>
      case 5:
      return <Pagesix handleBack={handleBack} handleNext={handleNext}/>;
+      case 6:
+     return <Pageseven handleBack={handleBack} handleNext={handleNext}/>;
     default:
       return 'Unknown stepIndex';
   }
@@ -64,11 +68,10 @@ function Main(props){
   setActiveStep(0)
  }
 
-  //console.log(props.data)
 
 	return(
 		<div className='container'>
-		  <h2 className='title'>Pasbanc Form</h2>
+		  <h2 className='title'>Pasbanc Wealth Form</h2>
          <div>
 		 <div>
 			{/*what you see below here are the headers which indicate the progress of the user
@@ -80,9 +83,7 @@ function Main(props){
        <div>
         {activeStep === steps.length ? (
           <div>
-         
-            <div className='content message'>Thank you for your best cooperation on this,your answers to these questions  provides the basic vital information that is key to working with us </div>
-            <button type='submit' className='submit' onClick={Reset}>Ok</button>
+           <Message />
           </div>
         ) : (
           <div>
@@ -99,4 +100,4 @@ function Main(props){
 }
 
 // Connect your component with redux
- export default connect(null, actions)(Main)
+ export default connect(null,actions)(Main)

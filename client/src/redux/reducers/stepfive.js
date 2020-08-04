@@ -9,7 +9,9 @@ const initialState ={
 	investmentWay:'',
 	noinvestmentReason:'',
 	inspirationForInvestment:'',
-	insurance:''
+	insurance:'',
+	preferrableinvestmentFields:'',
+	preferrableInvestmentWay:''
 }
 
 export default (state=initialState,action)=>{
@@ -22,7 +24,9 @@ export default (state=initialState,action)=>{
 			investmentWay:action.payload.investmentWay,
 			insurance:action.payload.insurance,
 			noinvestmentReason:action.payload.noinvestmentReason,
-			inspirationForInvestment:action.payload.inspirationForInvestment
+			inspirationForInvestment:action.payload.inspirationForInvestment,
+			preferrableinvestmentFields:action.payload.preferrableinvestmentFields,
+			preferrableInvestmentWay:action.payload.preferrableInvestmentWay
 		}
 		case 'reset':
 		return {
@@ -31,7 +35,9 @@ export default (state=initialState,action)=>{
 			investmentWay:action.payload,
 			insurance:action.payload,
 			noinvestmentReason:action.payload,
-			inspirationForInvestment:action.payload
+			inspirationForInvestment:action.payload,
+			preferrableInvestmentWay:action.payload,
+			preferrableinvestmentFields:action.payload
 		}
 		default :
 		return state

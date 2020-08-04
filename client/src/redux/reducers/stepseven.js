@@ -5,32 +5,32 @@
 //action type
 
 const initialState ={
-	expenditureOne:'',
-	expenditureTwo:'',
-	expenditureThree:'',
-	save:''
+	fullnames:'',
+	phonenumber:'',
+	birthDate:'',
+	email:''
 }
 
 export default (state=initialState,action)=>{
 	switch(action.type){
-		case 'steptwo':
+		case 'stepseven':
 		//console.log('got it')
 		return {
 			...state,
-			expenditureOne:action.payload.expenditureOne,
-			expenditureTwo:action.payload.expenditureTwo,
-			expenditureThree:action.payload.expenditureThree,
-			save:action.payload.save
+			fullnames:action.payload.fullnames,
+			phonenumber:action.payload.phonenumber,
+			birthDate:action.payload.birthDate,
+			email:action.payload.email
 		}
 		case 'reset':
-		return {
+		return{
 			...state,
-			expenditureOne:action.payload,
-			expenditureTwo:action.payload,
-			expenditureThree:action.payload,
-			save:action.payload
+			fullnames:action.payload,
+			phonenumber:action.payload,
+			birthDate:action.payload,
+			email:action.payload
 		}
-		default :
+		default:
 		return state
 	}
 }

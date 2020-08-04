@@ -1,12 +1,20 @@
 import React from  'react'
 import { useForm ,Controller} from "react-hook-form"
-import {Radio,RadioGroup,FormControlLabel} from '@material-ui/core'
+import {Radio,RadioGroup,FormControlLabel,TextField,withStyles} from '@material-ui/core'
 import {connect} from 'react-redux'
+import {compose} from  'redux'
 
 
 import * as actions from '../redux/actions/index.js'
 
-
+const styles ={
+	container:{
+    width:'100%',
+    margin:'12px 0px',
+    lineHeight: '22px',
+    fontSize:'22px',
+	}
+}
 function Pagethree(props){
 
   const { register,handleSubmit,control } = useForm();
@@ -21,8 +29,8 @@ function Pagethree(props){
 				//after ensuring the data has been authenticated can someone move to the next page
 		props.handleNext()
 	}
-	//console.log(props.data)
-
+	     //console.log(props.data)
+        const {classes}=props
 		return (
 			<div >
 			  <div className='content'>
@@ -33,15 +41,21 @@ function Pagethree(props){
 			{
 				props.save === 'yes' ?
 				<div>
-			   <label>Why do you save?< span className='required'>*</span></label>
-			   <input
-			   type='text'
-			   name='savingReason'
-			   defaultValue={props.data.savingReason}
-			   ref={register({required:true})}
-			   />
+			   <label>What inspires you to save?< span className='required'>*</span></label>
+			   <span className='description'>Why do you save</span>
+			   <TextField
+			   className={classes.container}
+                id="outlined-multiline-static"
+                  multiline
+                 rowsMax={4}
+                 variant="outlined"
+                 name='savingReason'
+                 inputRef={register({required:true})}
+                 defaultValue={props.data.savingReason}
+                />
 
 			   <label>How do you save?< span className='required'>*</span></label>
+			   <span className='description'>Through a bank, cooperative, mobilemoney, friends or ??</span>
 			   <input
 			   type='text'
 			   name='savingWay'
@@ -52,19 +66,34 @@ function Pagethree(props){
 			   </div>
 				:
 				<div>
-			   <label>Why don't you save? < span className='required'>*</span></label>
-			   <input
-			   type='text'
-			   name='nosavingReason'
-			   defaultValue={props.data.nosavingReason}
-			   ref={register({required:true})}
-			   />
-
-			   <label>What would help you or inspire you to start saving? < span className='required'>*</span></label>
-			   <input
-			   type='text'
+			   <label>Why is it that you don't save? < span className='required'>*</span></label>
+			   	 <TextField
+                  id="outlined-multiline-static"
+                  multiline
+                 rowsMax={4}
+                 className={classes.container}
+                 variant="outlined"
+                 name='nosavingReason'
+                 inputRef={register({required:true})}
+                 defaultValue={props.data.nosavingReason}
+                />
+			   <label> What would inspire or help you to save? < span className='required'>*</span></label>
+			   <TextField
+			    id="outlined-multiline-static"
+			    className={classes.container}
+                  multiline
+                 rowsMax={4}
+                 variant="outlined"
 			   name='inspirationToSave'
 			   defaultValue={props.data.inspirationToSave}
+			   inputRef={register({required:true})}
+			   />
+			    <label>What is the best means you would use to save?< span className='required'>*</span></label>
+			    <span className='description'>A bank, an app, mobilemoney, friends, or ...</span>
+			   <input
+			   type='text'
+			   name='meansToSave'
+			   defaultValue={props.data.preferrablemeansToSave}
 			   ref={register({required:true})}
 			   />
 
@@ -73,6 +102,7 @@ function Pagethree(props){
 			}
 			    <div>
 			   <label >Do you have an emergency fund?< span className='required'>*</span></label>
+			   <span className='description'>its money you set aside, for sudden occasions that require quick & compulsory expenditure which wasn't planned before</span>
                          <Controller
                     name="emergencyFund"
                     control={control}
@@ -109,4 +139,7 @@ function mapStateToProps(state){
 
 }
 // Connect your component with redux
- export default connect(mapStateToProps, actions)(Pagethree)
+ export default compose(
+ 	withStyles(styles),
+ 	connect(mapStateToProps, actions)
+ 	)(Pagethree)

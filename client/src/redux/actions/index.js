@@ -68,6 +68,16 @@ export const stepsix=(data)=>{
 		})
 	}
 }
+/*this is for the sixth step*/
+export const stepseven=(data)=>{
+	return dispatch=>{
+		//console.log(data)
+		dispatch({
+			type:'stepseven',
+			payload:data
+		})
+	}
+}
 
 /*this is for the reset*/
 export const reset=()=>{
@@ -82,20 +92,8 @@ export const reset=()=>{
 
 /*this is responsible for sending data to the backend*/
 export const getData=(data)=>{
-	//console.log(data)
-	return  async dispatch=>{
-		 await axios
-                .post('/user',data)
-                .then(res=>{
-                  //console.log(res.data)
-                  dispatch({
-                       type:'create data',
-                        payload:res.data.msg
-                  })
-
-                }).catch(err=>{
-                    console.log(err)
-                })
-
+	console.log(data)
+	return{
+		 //console.log(data)
 	}
 }

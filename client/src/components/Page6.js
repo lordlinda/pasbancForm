@@ -8,8 +8,7 @@ import * as actions from '../redux/actions/index.js'
 const styles ={
 	container:{
     width:'100%',
-    height:'200px',
-    marginTop:'10px'
+    margin:'12px 0px'
 	}
 }
 function Pagesix(props){
@@ -20,13 +19,13 @@ function Pagesix(props){
 		//so we are sending our data to the global store
 		props.stepsix(data)
 		 //just before we reset data  we send our data to the backend
-        await props.getData(props.formdata)
+        //await props.getData(props.formdata)
 		//after ensuring the data has been authenticated can someone move to the next page		
 		props.handleNext()
 	}
 	//console.log(props)
 
-const {classes}=props
+        const {classes}=props
 		return (
 			<div  className='aspirations'>
 					<form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
@@ -35,81 +34,102 @@ const {classes}=props
 			{
 				props.insurance === 'yes' ?
 				<div>
-			   <label>What inspired you to have any insurance policy?< span className='required'>*</span></label>
-			   <input
+			   <label>What inspired you to have any insurance policy?
+			   < span className='required'>*</span></label>
+			   <span className='description'>Why insure?</span>
+			   <TextField
+			   className={classes.container}
 			   type='text'
+			   id="outlined-multiline-static"
+               multiline
+               rowsMax={4}
+               variant="outlined"
 			   name='insuranceReason'
 			   defaultValue={props.data.insuranceReason}
-			   ref={register({required:true})}
+			   inputRef={register({required:true})}
 			   />
 
-			   <label>How do you pay for your insurance policy?< span className='required'>*</span></label>
+			   <label>What would you insure that insurance packages don't cover yet to date?< span className='required'>*</span></label>
 			   <input
 			   type='text'
 			   name='insurancePaymentWay'
 			   defaultValue={props.data.insurancePaymentWay}
 			   ref={register({required:true})}
 			   />
-			   <label>What more would you wish  insurance policy could cover for you?< span className='required'>*</span></label>
-			   <input
+			   <label>How do you think today's insurance can be improved to serve you better?< span className='required'>*</span></label>
+			   <TextField
+			   className={classes.container}
 			   type='text'
+			   id="outlined-multiline-static"
+               multiline
+               rowsMax={4}
+               variant="outlined"
 			   name='extraInsuranceOptions'
 			   defaultValue={props.data.extraInsuranceOptions}
-			   ref={register({required:true})}
+			   inputRef={register({required:true})}
 			   />
-			   <label>How has your insurance impacted you to this day?< span className='required'>*</span></label>
-			   <input
-			   type='text'
-			   name='insurancePersonalImpact'
-			   defaultValue={props.data.insurancePersonalImpact}
-			   ref={register({required:true})}
-			   />
-			   <label>How do you wish insurance would be improved to serve you better?< span className='required'>*</span></label>
-			   <input
-			   type='text'
-			   name='insuranceImprovement'
-			   defaultValue={props.data.insuranceImprovement}
-			   ref={register({required:true})}
-			   />
-
 			   </div>
 				:
 				<div>
-			   <label>How is it that you don't have any form of insurance?< span className='required'>*</span></label>
-			   <input
+			   <label>Why is it that you don't have any form of insurance?
+			   < span className='required'>*</span></label>
+			   <TextField
+			   className={classes.container}
 			   type='text'
+			   id="outlined-multiline-static"
+               multiline
+               rowsMax={4}
+               variant="outlined"
 			   name='noinsuranceReason'
 			   defaultValue={props.data.noinsuranceReason}
-			   ref={register({required:true})}
+			   inputRef={register({required:true})}
 			   />
 
-			   <label>What would help you or inspire you to start having some?< span className='required'>*</span></label>
-			   <input
+			   <label> What do you think would inspire or cause you to have some insurance
+			   ?< span className='required'>*</span></label>
+			   <TextField
+			   className={classes.container}
+			   id="outlined-multiline-static"
+               multiline
+               rowsMax={4}
+               variant="outlined"
 			   type='text'
 			   name='inspirationForInsurance'
 			   defaultValue={props.data.inspirationForInsurance}
-			   ref={register({required:true})}
+			   inputRef={register({required:true})}
+			   />
+			    <label>How about retirement, what thoughts do you have about it
+			   ?< span className='required'>*</span></label>
+			   <TextField
+			   className={classes.container}
+			   id="outlined-multiline-static"
+               multiline
+               rowsMax={4}
+               variant="outlined"
+			   type='text'
+			   name='retirement'
+			   defaultValue={props.data.retirement}
+			   inputRef={register({required:true})}
 			   />
 
 			   </div>
 
 			}
-			
-			   <label>What are your top financial aspirations?< span className='required'>*</span></label>
+			   <label>What are your top financial ambitions in life?< span className='required'>*</span></label>
 			   <TextField
 			   className={classes.container}
                   id="outlined-multiline-static"
                   multiline
                  rowsMax={4}
                  variant="outlined"
-                 name='aspirations'
+                 name='financialAmbitions'
                  inputRef={register({required:true})}
-                 defaultValue={props.data.aspirations}
+                 defaultValue={props.data.financialAmbitions}
 
         />
-               <button className='next prev'>Submit</button>
+               <button className='next prev'>Next</button>
 			   </form>
-			  <button className='next'onClick={props.handleBack}>Prev</button>
+			  <button className='next' onClick={props.handleBack}>Prev</button>
 			</div>
 			)
 

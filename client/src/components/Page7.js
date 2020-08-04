@@ -3,64 +3,57 @@ import { useForm } from "react-hook-form"
 import {connect} from 'react-redux'
 
 import * as actions from '../redux/actions/index.js'
-function Pageone(props){
+function Pageseven(props){
 
   const { register,  errors,handleSubmit } = useForm();
-
 
  //this function submits all our data
 	const onSubmit=(data)=>{
 		//console.log(data)
 
 		//so we are sending our data to the global store
-		props.stepone(data)
+		props.stepseven(data)
 		//since the data has been submitted  successfully,we can direct the user to the next
 		//page
+
         props.handleNext()
+        //console.log(props.formdata)
 	}
-	  //const handleNext=()=>{
-		//console.log(errors)
-	//}
-	
+
 	//console.log(props.data)
 		return (
 			<div >
 			  <div className='content'>
+			  <div className='message'>
+			  Finally, we would very much like that your honest contribution & personal aspirations are attributed to you and not any other person.
+               Kindly fill in your details
+			  </div>
 			<form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
 
 			{/*Each field is required to have a unique name*/}
-			   <div>
-			   <label>First Name < span className='required'>*</span></label>
+			   <label>Full Names < span className='required'>*</span></label>
 			   <input
 			   type='text'
-			   name='firstname'
-              defaultValue={props.data.firstname}
+			   name='fullnames'
+               defaultValue={props.data.fullnames}
 			   ref={register({required:true})}
 			   />
-			    {errors.firstname && <span className='error'>First Name is required</span>}
 
-			   <label>Last Name < span className='required'>*</span></label>
-			   <input
-			   type='text'
-			   name='lastname'
-			   defaultValue={props.data.lastname}
-			   ref={register({required:true})}
-			   />
-			    {errors.lastname && <span className='error'>Last Name is required</span>}
-
-			   </div>
-			    <div>
-			   <label>Age < span className='required'>*</span></label>
+			   <label>Phone number < span className='required'>*</span></label>
 			   <input
 			   type='number'
-			   name='age'
-			   defaultValue={props.data.age}
-			   ref={register({required:true,min: 2, max: 100})}
+			   name='phonenumber'
+			   defaultValue={props.data.phonenumber}
+			   ref={register({required:true})}
 			   />
-			   {errors.age && <span className='error'>Age must be between 2 to 100 years</span>}
 
-			   </div>
-              <div>
+			   <label> BirthDay < span className='required'>*</span></label>
+			   <input
+			   type='date'
+			   name='birthDate'
+			   defaultValue={props.data.birthDate}
+			   ref={register({required:true})}
+			   />
 			   <label>Email< span className='required'>*</span></label>
 			   <input
 			   type='email'
@@ -70,11 +63,11 @@ function Pageone(props){
 			   />
 			   {errors.email && <span className='error'>Please input a valid email</span>}
 
-			   </div>
-			   <button className='next first' type='submit'>
-			   Next
+			   <button className='next prev' type='submit'>
+			   Submit
               </button>
 			   </form>
+			   <button className='next' onClick={props.handleBack}>Prev</button>
 			  </div>
 			</div>
 			)
@@ -82,10 +75,11 @@ function Pageone(props){
 }
 function mapStateToProps(state){
 	return {
-		data:state.one
+		data:state.seven,
+
 	}
 
 }
 
 // Connect your component with redux
- export default connect(mapStateToProps, actions)(Pageone)
+ export default connect(mapStateToProps, actions)(Pageseven)

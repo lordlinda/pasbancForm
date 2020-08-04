@@ -28,21 +28,28 @@ label{
 	line-height:22px;
 	font-size: 18px;
 	display:block;
+	margin-bottom: 10px;
 }
 input{
-    background:#f6f6f6;
-   border:1px solid #e5e5e5;
-   margin: 18px 0px;
+   border:none;
+   margin: 15px 0px;
    height:37px;
    line-height: 20px;
    padding:0px 10px;
    font-size:17px;
+   background: transparent;
+   border-bottom: 1px solid #000000;
+  width:100%;
+
 }
 /*this is specifically for the three similar inputs for the top 3 expenditures
 for our user,since they are for one question,they should be closer so i reduced the margin*/
 .expenditure{
 	margin:10px 0px;
 	display:block;
+}
+.last{
+	margin-bottom:25px;
 }
 .error{
 	color:red;
@@ -53,9 +60,9 @@ for our user,since they are for one question,they should be closer so i reduced 
 
 /*when u focus on a cetain input its border color changes*/
 
-input:focus {
+/*input:focus {
 	border: 1px solid #853D82;
-}
+}*/
 .next{
 	background: #853d82;
 	color:#fff;
@@ -88,10 +95,11 @@ input:focus {
 	margin-top:50px;
 	margin-left:16%;
 }
-/*this is for the message just before submission*/
+/*this is for the message just before submission and at the top of the first page*/
 .message{
 	line-height: 27px;
 	font-size:20px;
+	margin-bottom:30px;
 }
 
 .aspirations{
@@ -102,6 +110,10 @@ input:focus {
 	font-size:18px;
 }
 
+.description{
+	font-size:12px;
+	margin:50px 0px;
+}
 /*this is big phone to tablet*/
 @media only screen and (min-width: 465px) {
   body {
@@ -136,11 +148,14 @@ input{
        height:40px;
        line-height: 22px;
        font-size:22px;
-       width:300px;
-       border:1px solid #e5e5e6;
+       width:100%;
        margin:28px 0px;
-
+       background: transparent;
+       border-bottom: 1px solid #000000;
+      border:none;
 }
+
+
 .next{
 	font-size: 25px;
 	width:125px;
@@ -157,6 +172,9 @@ input{
 .expenditure{
 	margin:10px 0px;
 	display:block;
+}
+.last{
+	margin-bottom:30px;
 }
 /*this allows the button to be inline prev button to be inline with the next button to the acurate,so dont change it*/
 .prev{
@@ -203,10 +221,10 @@ input{
        height:34px;
        line-height: 16px;
        font-size:18px;
-       width:300px;
-       border:1px solid #e5e5e6;
        margin:15px 0px;
-
+       background: transparent;
+       border-bottom: 1px solid #000000;
+        width:100%;
 }
 .next{
 	font-size: 20px;

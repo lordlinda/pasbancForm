@@ -9,7 +9,8 @@ const initialState ={
 	savingWay:'',
 	emergencyFund:'',
 	nosavingReason:'',
-	inspirationToSave:''
+	inspirationToSave:'',
+	preferrablemeansToSave:''
 }
 
 export default (state=initialState,action)=>{
@@ -22,7 +23,8 @@ export default (state=initialState,action)=>{
 			savingWay:action.payload.savingWay,
 			emergencyFund:action.payload.emergencyFund,
 			nosavingReason:action.payload.nosavingReason,
-			inspirationToSave:action.payload.inspirationToSave
+			inspirationToSave:action.payload.inspirationToSave,
+			preferrablemeansToSave:action.payload.preferrablemeansToSave
 		}
 		case 'reset':
 		return {
@@ -31,7 +33,8 @@ export default (state=initialState,action)=>{
 			savingWay:action.payload,
 			emergencyFund:action.payload,
 			nosavingReason:action.payload,
-			inspirationToSave:action.payload
+			inspirationToSave:action.payload,
+			preferrablemeansToSave:action.payload
 		}
 		default :
 		return state

@@ -6,12 +6,12 @@
 
 const initialState ={
 	insuranceReason:'',
-	insurancePersonalImpact:'',
 	extraInsuranceOptions:'',
-	insuranceImprovement:'',
 	noinsuranceReason:'',
 	inspirationForInsurance:'',
-	aspirations:''
+	insurancePaymentWay:'',
+	financialAmbitions:'',
+	retirement:''
 }
 
 export default (state=initialState,action)=>{
@@ -21,23 +21,23 @@ export default (state=initialState,action)=>{
 		return {
 			...state,
 			insuranceReason:action.payload.insuranceReason,
-			insurancePersonalImpact:action.payload.insurancePersonalImpact,
+			insurancePaymentWay:action.payload.insurancePaymentWay,
 			extraInsuranceOptions:action.payload.extraInsuranceOptions,
-			insuranceImprovement:action.payload.insuranceImprovement,
 			noinsuranceReason:action.payload.noinsuranceReason,
 			inspirationForInsurance:action.payload.inspirationForInsurance,
-			aspirations:action.payload.aspirations
+			financialAmbitions:action.payload.financialAmbitions,
+			retirement:action.payload.retirement
 		}
 		case 'reset':
 		return {
 			...state,
 			insuranceReason:action.payload,
-			insurancePersonalImpact:action.payload,
+			insurancePaymentWay:action.payload,
 			extraInsuranceOptions:action.payload,
-			insuranceImprovement:action.payload,
 			noinsuranceReason:action.payload,
 			inspirationForInsurance:action.payload,
-			aspirations:action.payload
+			financialAmbitions:action.payload,
+			retirement:action.payload
 		}
 		default :
 		return state

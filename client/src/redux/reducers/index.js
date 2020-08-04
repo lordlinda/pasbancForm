@@ -7,6 +7,7 @@ import stepthreeReducer from './stepthree.js'
 import stepfourReducer from './stepfour.js'
 import stepfiveReducer from './stepfive.js'
 import stepsixReducer from './stepsix.js'
+import stepsevenReducer from './stepseven.js'
 
 // Use ES6 object literal shorthand syntax to define the object shape
 const rootReducer = combineReducers({
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
 	three:stepthreeReducer,
 	four:stepfourReducer,
 	five:stepfiveReducer,
-	six:stepsixReducer
+	six:stepsixReducer,
+	seven:stepsevenReducer
 })
 export default rootReducer

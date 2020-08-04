@@ -1,10 +1,17 @@
 import React from  'react'
 import { useForm,Controller } from "react-hook-form"
-import {Radio,RadioGroup,FormControlLabel} from '@material-ui/core'
+import {Radio,RadioGroup,FormControlLabel,TextField,withStyles} from '@material-ui/core'
 import {connect} from 'react-redux'
-
+import {compose} from  'redux'
 import * as actions from '../redux/actions/index.js'
 
+
+const styles ={
+	container:{
+    width:'100%',
+    margin:'12px 0px'
+	}
+}
 function Pagefour(props){
 
   const { register,handleSubmit ,control} = useForm();
@@ -19,7 +26,7 @@ function Pagefour(props){
 		props.handleNext()
 	}
 	//console.log(props.emergencyFund)
-
+          const {classes}=props
 		return (
 			<div >
 			  <div className='content'>
@@ -30,15 +37,21 @@ function Pagefour(props){
 			{
 				props.emergencyFund === 'yes' ?
 				<div>
-			   <label>What inspired you to have an emergency fund? < span className='required'>*</span></label>
-			   <input
-			   type='text'
-			   name='emergencyfundReason'
+			   <label>Why is it that you have an emergency fund? < span className='required'>*</span></label>
+			   <span className='description'>What's your inspiration</span>
+			    <TextField
+			     className={classes.container}
+			    id="outlined-multiline-static"
+                  multiline
+                 rowsMax={4}
+                 variant="outlined"
+                  name='emergencyfundReason'
 			   defaultValue={props.data.emergencyfundReason}
-			   ref={register({required:true})}
+			   inputRef={register({required:true})}
 			   />
 
-			   <label>How do you save for an emergency fund?</label>
+			   <label>How do put money into your emergency fund?</label>
+			    <span className='description'>Through a bank, cooperative, mobilemoney, friends or ??</span>
 			   <input
 			   type='text'
 			   name='emergencyfundWay'
@@ -49,20 +62,30 @@ function Pagefour(props){
 			   </div>
 				:
 				<div>
-			   <label>Why don't you save for emergencies?< span className='required'>*</span></label>
-			   <input
+			   <label>Why don't you save up for any emergencies?< span className='required'>*</span></label>
+			   <TextField
+			    className={classes.container}
 			   type='text'
+			    id="outlined-multiline-static"
+                  multiline
+                 rowsMax={4}
+                 variant="outlined"
 			   name='noemergencyFundReason'
 			   defaultValue={props.data.noemergencyFundReason}
-			   ref={register({required:true})}
+			   inputRef={register({required:true})}
 			   />
 
-			   <label>What would help you or inspire you to start saving for emergencies?< span className='required'>*</span></label>
-			   <input
+			   <label>What do you think can help get you to start saving for emergencies?< span className='required'>*</span></label>
+			   <TextField
+			    className={classes.container}
 			   type='text'
+			    id="outlined-multiline-static"
+                multiline
+               rowsMax={4}
+               variant="outlined"
 			   name='inspirationForEmergencyFund'
 			   defaultValue={props.data.inspirationForEmergencyFund}
-			   ref={register({required:true})}
+			   inputRef={register({required:true})}
 			   />
 
 			   </div>
@@ -70,13 +93,14 @@ function Pagefour(props){
 			}
 			    <div>
 			   <label >Do you have any investments?< span className='required'>*</span></label>
+			   <span className='description'>  things that generate money into your pockets</span>
                           <Controller
-        name="investments"
-        control={control}
-        defaultValue={props.data.investments}
-        rules={{ required: true }}
-        render={props => <RadioGroup {...props}
-         > <FormControlLabel
+			        name="investments"
+			        control={control}
+			        defaultValue={props.data.investments}
+			        rules={{ required: true }}
+			        render={props => <RadioGroup {...props}
+			         > <FormControlLabel
                     value="yes"
                     control={<Radio />}
                     label="Yes"
@@ -106,4 +130,7 @@ function mapStateToProps(state){
 
 }
 // Connect your component with redux
- export default connect(mapStateToProps, actions)(Pagefour)
+  export default compose(
+ 	withStyles(styles),
+ 	connect(mapStateToProps, actions)
+ 	)(Pagefour)

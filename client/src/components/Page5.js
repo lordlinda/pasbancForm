@@ -1,11 +1,16 @@
 import React from  'react'
 import { useForm ,Controller} from "react-hook-form"
-import {Radio,RadioGroup,FormControlLabel} from '@material-ui/core'
+import {Radio,RadioGroup,FormControlLabel,TextField,withStyles} from '@material-ui/core'
 import {connect} from 'react-redux'
-
+import {compose} from  'redux'
 import * as actions from '../redux/actions/index.js'
 
-
+const styles ={
+	container:{
+    width:'100%',
+    margin:'12px 0px'
+	}
+}
 function Pagefive(props){
   const { register,handleSubmit,control} = useForm();
 
@@ -18,6 +23,7 @@ function Pagefive(props){
 		props.handleNext()
 	}
 //console.log(props)
+    const {classes}=props
 		return (
 			<div >
 			  <div className='content'>
@@ -28,7 +34,8 @@ function Pagefive(props){
 			{
 				props.investments === 'yes' ?
 				<div>
-			   <label>Why do you invest?< span className='required'>*</span></label>
+			   <label>Why is it that you are invested?< span className='required'>*</span></label>
+			   <span className='description'>Why invest?</span>
 			   <input
 			   type='text'
 			   name='investmentReason'
@@ -37,29 +44,68 @@ function Pagefive(props){
 			   />
 
 			   <label>How do you invest?< span className='required'>*</span></label>
-			   <input
+			   <span className='description'>Through business, the bank, an app, cooperative, or ?? </span>
+			   <TextField
+			   className={classes.container}
 			   type='text'
+			    id="outlined-multiline-static"
+                multiline
+                rowsMax={4}
+                variant="outlined"
 			   name='investmentWay'
 			   defaultValue={props.data.investmentWay}
-			   ref={register({required:true})}
+			   inputRef={register({required:true})}
 			   />
-
+                 <label>In which ways or fields do you plan to expand your investing?< span className='required'>*</span></label>
+			   <TextField
+			   className={classes.container}
+			   type='text'
+			   id="outlined-multiline-static"
+               multiline
+               rowsMax={4}
+               variant="outlined"
+			   name='preferrableinvestmentFields'
+			   defaultValue={props.data.preferrableinvestmentFields}
+			   inputRef={register({required:true})}
+			   />
 			   </div>
 				:
 				<div>
-			   <label>How is it that you don't have any investments?< span className='required'>*</span></label>
-			   <input
+			   <label>Why is it that you don't have any investment?
+			   < span className='required'>*</span></label>
+			   <TextField
+			   className={classes.container}
 			   type='text'
+			   id="outlined-multiline-static"
+               multiline
+               rowsMax={4}
+               variant="outlined"
 			   name='noinvestmentReason'
 			   defaultValue={props.data.noinvestmentReason}
-			   ref={register({required:true})}
+			   inputRef={register({required:true})}
 			   />
 
-			   <label>What would help you or inspire you to start investing?< span className='required'>*</span></label>
-			   <input
+			   <label>What would inspire or help you to get started?
+			   < span className='required'>*</span></label>
+			   <TextField
+			   className={classes.container}
 			   type='text'
+			   id="outlined-multiline-static"
+               multiline
+               rowsMax={4}
+               variant="outlined"
 			   name='inspirationForInvestment'
 			   defaultValue={props.data.inspirationForInvestment}
+			   inputRef={register({required:true})}
+			   />
+
+			     <label> What is the best possible way to invest that you would go for ?
+			     < span className='required'>*</span></label>
+			     <span className='description'>business, the bank, an app, cooperative, stocks or ??</span>
+			   <input
+			   type='text'
+			   name='preferrableInvestmentWay'
+			   defaultValue={props.data.preferrableInvestmentWay}
 			   ref={register({required:true})}
 			   />
 
@@ -68,15 +114,15 @@ function Pagefive(props){
 			}
 			   <label >Do you have any form of insurance?< span className='required'>*</span></label>
                           <Controller
-        name="insurance"
-        control={control}
-        defaultValue={props.data.insurance}
-        rules={{ required: true }}
-        render={props => <RadioGroup {...props}
-         > <FormControlLabel
-                    value="yes"
-                    control={<Radio />}
-                    label="Yes"
+					        name="insurance"
+					        control={control}
+					        defaultValue={props.data.insurance}
+					        rules={{ required: true }}
+					        render={props => <RadioGroup {...props}
+							 > <FormControlLabel
+		                    value="yes"
+		                    control={<Radio />}
+		                    label="Yes"
                   />
                   <FormControlLabel
                     value="no"
@@ -103,4 +149,7 @@ function mapStateToProps(state){
 
 }
 // Connect your component with redux
- export default connect(mapStateToProps, actions)(Pagefive)
+ export default compose(
+ 	withStyles(styles),
+ 	connect(mapStateToProps, actions)
+ 	)(Pagefive)
