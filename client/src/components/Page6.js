@@ -19,6 +19,8 @@ function Pagesix(props){
 		//console.log(data)
 		//so we are sending our data to the global store
 		props.stepsix(data)
+		 //just before we reset data  we send our data to the backend
+        props.getData(props.formdata)
 		//after ensuring the data has been authenticated can someone move to the next page		
 		props.handleNext()
 	}
@@ -115,7 +117,8 @@ const {classes}=props
 function mapStateToProps(state){
 	return {
 		data:state.six,
-		insurance:state.five.insurance
+		insurance:state.five.insurance,
+		formdata:state
 	}
 
 }

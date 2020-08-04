@@ -55,10 +55,9 @@ function Main(props){
     const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
- const Reset=async()=>{
+ const Reset=()=>{
   //console.log('data sent')
-  //just before we reset data  we send our data to the backend
-  await props.getData(props.data)
+ 
   //this resets all the data back to empty strings
   props.reset()
   //we send it back to the first step
@@ -98,10 +97,6 @@ function Main(props){
 
 		)
 }
-function mapStateToProps(state){
-  return {
-    data:state
-  }
-}
+
 // Connect your component with redux
- export default connect(mapStateToProps, actions)(Main)
+ export default connect(null, actions)(Main)
