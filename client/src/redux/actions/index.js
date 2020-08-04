@@ -83,12 +83,19 @@ export const reset=()=>{
 /*this is responsible for sending data to the backend*/
 export const getData=(data)=>{
 	//console.log(data)
-	return  dispatch=>{
-		//await axios
-		//.post('/user',data)
-		//.then(res=>{
-			console.log(data)
-		//})
+	return async dispatch=>{
+		await  axios
+                .post('/user',data)
+                .then(res=>{
+                  //console.log(res.data)
+                  dispatch({
+                       type:'create data',
+                        payload:res.data.msg
+                  })
+
+                }).catch(err=>{
+                    console.log(err)
+                })
 
 	}
 }

@@ -12,13 +12,14 @@ const Form =require('../models/Form.js')
 //@access         public
 router.post('/',(req,res)=>{
 	//console.log(req.body)
-	Form.create({data:req.body})
-	.then(data=>{
-		//console.log({msg:'data sent successfully'})
-		res.status(200).json({msg:'data sent successfully'})
-	}).catch(err=>{
-		//console.log(err)
-		res.status(500).json({msg:'something went wrong'})
+	const newForm =new Form({
+       data:req.body
+		})
+    newForm.save()
+    .then(data=>{
+    	res.status(200).json({msg:'data sent successfully'})
+    }).catch(err=>{
+		res.status(500).json({error:err.message})
 	})
 })
 
