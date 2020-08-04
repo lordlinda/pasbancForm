@@ -9,13 +9,14 @@ const mongoose=require('mongoose')
 const dotenv =require('dotenv')
 
 dotenv.config()
+console.log(process.env.MONGODB_URL)
 //connect to the mongo database
 mongoose.connect('mongodb://localhost/formDB' || process.env.MONGODB_URL,{
 useNewUrlParser: true,
 useUnifiedTopology: true
 })
 .then(console.log('connected to mongodb successfully'))
-.catch(err=>console.log('just an issue with mongo',err))
+.catch(err=>console.log('just an issue with mongo'))
 //then we instatiate the express app
 //we are calling it app ,a function of app
 const app=express()
