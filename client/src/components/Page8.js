@@ -9,7 +9,7 @@ function Pageeight(props){
 
  //this function submits all our data
 	const onSubmit=(data)=>{
-		console.log(data)
+		//console.log(data)
 
 		//so we are sending our data to the global store
 		props.stepeight(data)
