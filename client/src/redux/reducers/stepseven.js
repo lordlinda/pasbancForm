@@ -5,10 +5,7 @@
 //action type
 
 const initialState ={
-	fullnames:'',
-	phonenumber:'',
-	birthDate:'',
-	email:''
+	financialAmbitions:'',
 }
 
 export default (state=initialState,action)=>{
@@ -17,18 +14,7 @@ export default (state=initialState,action)=>{
 		//console.log('got it')
 		return {
 			...state,
-			fullnames:action.payload.fullnames,
-			phonenumber:action.payload.phonenumber,
-			birthDate:action.payload.birthDate,
-			email:action.payload.email
-		}
-		case 'reset':
-		return{
-			...state,
-			fullnames:action.payload,
-			phonenumber:action.payload,
-			birthDate:action.payload,
-			email:action.payload
+			financialAmbitions:action.payload.financialAmbitions
 		}
 		default:
 		return state

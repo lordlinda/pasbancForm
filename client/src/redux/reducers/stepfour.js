@@ -24,15 +24,6 @@ export default (state=initialState,action)=>{
 			noemergencyFundReason:action.payload.noemergencyFundReason,
 			inspirationForEmergencyFund:action.payload.inspirationForEmergencyFund
 		}
-		case 'reset':
-		return {
-			...state,
-			emergencyfundReason:action.payload,
-			emergencyfundWay:action.payload,
-			investments:action.payload,
-			noemergencyFundReason:action.payload,
-			inspirationForEmergencyFund:action.payload
-		}
 		default :
 		return state
 	}

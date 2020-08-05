@@ -32,7 +32,7 @@ label{
 }
 input{
    border:none;
-   margin: 15px 0px;
+   margin: 7px 0px;
    height:37px;
    line-height: 20px;
    padding:0px 10px;
@@ -57,6 +57,7 @@ for our user,since they are for one question,they should be closer so i reduced 
 	margin-top: -10px;
 	margin-bottom: 10px;
 }
+
 
 /*when u focus on a cetain input its border color changes*/
 
@@ -114,6 +115,79 @@ for our user,since they are for one question,they should be closer so i reduced 
 	font-size:12px;
 	margin:50px 0px;
 }
+
+/*this is the styles for our date of birth*/
+.birthdate{
+	display:grid;
+	grid-template-columns:70px 100px 150px;
+	grid-gap: 5px;
+	margin: 20px 0px
+}
+
+.custom-select select {
+    font-size: 16px;
+    font-family: sans-serif;
+    font-weight: 700;
+    color: #444;
+    line-height: 1.3;
+    padding: .6em 1.4em .3em .8em;
+    width: 100%;
+    max-width: 100%; /* useful when width is set to anything other than 100% */
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    border-radius: .5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+}
+
+.date{
+	 font-family: sans-serif;
+    font-weight: 700;
+    color: #444;
+    line-height: 1.3;
+    padding: .6em 1.3em .5em .8em;
+    width: 100%;
+    max-width: 100%; /* useful when width is set to anything other than 100% */
+    box-sizing: border-box;
+    margin: 0;
+    border: 1px solid #aaa;
+    border-radius: .5em;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    appearance: none;
+    background-color: #fff;
+}
+
+.year{
+	width:50%;
+}
+.day{
+	width:100%;
+}
+
+ .custom-option {
+     position: relative;
+     display: block;
+     padding: 0 18px 0 18px;
+     font-size: 12px;
+     font-weight: 300;
+     cursor: pointer;
+     color:#000;
+     background-color:#fff;
+}
+ 
+ .custom-option:hover{
+ 	background-color:red;
+ }
+
+
+
+
+
+
 /*this is big phone to tablet*/
 @media only screen and (min-width: 465px) {
   body {
@@ -178,6 +252,12 @@ input{
 /*this allows the button to be inline prev button to be inline with the next button to the acurate,so dont change it*/
 .prev{
 	margin-bottom: -39px
+}
+.birthdate{
+	display:grid;
+	grid-template-columns:100px 190px 190px;
+	grid-gap: 10px;
+	margin: 20px 0px
 }
 }
 

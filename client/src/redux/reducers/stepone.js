@@ -16,12 +16,6 @@ export default (state=initialState,action)=>{
 			...state,
 			sourceOfIncome:action.payload.sourceOfIncome
 		}
-		case 'reset':
-		return{
-			...state,
-			sourceOfIncome:action.payload
-			
-		}
 		default:
 		return state
 	}

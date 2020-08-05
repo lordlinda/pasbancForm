@@ -10,7 +10,6 @@ const initialState ={
 	noinsuranceReason:'',
 	inspirationForInsurance:'',
 	insurancePaymentWay:'',
-	financialAmbitions:'',
 	retirement:''
 }
 
@@ -28,17 +27,7 @@ export default (state=initialState,action)=>{
 			financialAmbitions:action.payload.financialAmbitions,
 			retirement:action.payload.retirement
 		}
-		case 'reset':
-		return {
-			...state,
-			insuranceReason:action.payload,
-			insurancePaymentWay:action.payload,
-			extraInsuranceOptions:action.payload,
-			noinsuranceReason:action.payload,
-			inspirationForInsurance:action.payload,
-			financialAmbitions:action.payload,
-			retirement:action.payload
-		}
+		
 		default :
 		return state
 	}

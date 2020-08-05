@@ -28,17 +28,6 @@ export default (state=initialState,action)=>{
 			preferrableinvestmentFields:action.payload.preferrableinvestmentFields,
 			preferrableInvestmentWay:action.payload.preferrableInvestmentWay
 		}
-		case 'reset':
-		return {
-			...state,
-			investmentReason:action.payload,
-			investmentWay:action.payload,
-			insurance:action.payload,
-			noinvestmentReason:action.payload,
-			inspirationForInvestment:action.payload,
-			preferrableInvestmentWay:action.payload,
-			preferrableinvestmentFields:action.payload
-		}
 		default :
 		return state
 	}

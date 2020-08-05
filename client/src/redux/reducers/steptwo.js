@@ -22,14 +22,7 @@ export default (state=initialState,action)=>{
 			expenditureThree:action.payload.expenditureThree,
 			save:action.payload.save
 		}
-		case 'reset':
-		return {
-			...state,
-			expenditureOne:action.payload,
-			expenditureTwo:action.payload,
-			expenditureThree:action.payload,
-			save:action.payload
-		}
+		
 		default :
 		return state
 	}

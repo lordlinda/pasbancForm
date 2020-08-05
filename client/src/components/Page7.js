@@ -1,85 +1,70 @@
-import React from  'react'
-import { useForm } from "react-hook-form"
+import React  from  'react'
+import { useForm} from "react-hook-form"
+import {TextField,withStyles} from '@material-ui/core'
 import {connect} from 'react-redux'
+import {compose} from  'redux'
 
 import * as actions from '../redux/actions/index.js'
+
+const styles ={
+  container:{
+    width:'100%',
+    margin:'12px 0px'
+  }
+}
+
 function Pageseven(props){
 
-  const { register,  errors,handleSubmit } = useForm();
+  const {handleSubmit,register } = useForm();
 
- //this function submits all our data
+
+
+  //this function submits all our data
 	const onSubmit=(data)=>{
 		//console.log(data)
-
 		//so we are sending our data to the global store
 		props.stepseven(data)
-		//since the data has been submitted  successfully,we can direct the user to the next
-		//page
-
-        props.handleNext()
-        //console.log(props.formdata)
+		//after ensuring the data has been authenticated can someone move to the next page
+		props.handleNext()
 	}
-
 	//console.log(props.data)
+          const {classes}=props
+
 		return (
 			<div >
 			  <div className='content'>
-			  <div className='message'>
-			  Finally, we would very much like that your honest contribution & personal aspirations are attributed to you and not any other person.
-               Kindly fill in your details
-			  </div>
 			<form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
-
 			{/*Each field is required to have a unique name*/}
-			   <label>Full Names < span className='required'>*</span></label>
-			   <input
-			   type='text'
-			   name='fullnames'
-               defaultValue={props.data.fullnames}
-			   ref={register({required:true})}
-			   />
+			   <label>What are your top financial ambitions in life?< span className='required'>*</span></label>
+         <TextField
+         className={classes.container}
+                  id="outlined-multiline-static"
+                  multiline
+                 rowsMax={4}
+                 variant="outlined"
+                 name='financialAmbitions'
+                 inputRef={register({required:true})}
+                 defaultValue={props.data.financialAmbitions}
 
-			   <label>Phone number < span className='required'>*</span></label>
-			   <input
-			   type='number'
-			   name='phonenumber'
-			   defaultValue={props.data.phonenumber}
-			   ref={register({required:true})}
-			   />
-
-			   <label> BirthDay < span className='required'>*</span></label>
-			   <input
-			   type='date'
-			   name='birthDate'
-			   defaultValue={props.data.birthDate}
-			   ref={register({required:true})}
-			   />
-			   <label>Email< span className='required'>*</span></label>
-			   <input
-			   type='email'
-			   name='email'
-			   defaultValue={props.data.email}
-			   ref={register({required:true,pattern:/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/})}
-			   />
-			   {errors.email && <span className='error'>Please input a valid email</span>}
-
-			   <button className='next prev' type='submit'>
-			   Submit
-              </button>
+        />
+               <button className='next prev'>Next</button>
 			   </form>
-			   <button className='next' onClick={props.handleBack}>Prev</button>
+        <button className='next' onClick={props.handleBack}>Prev</button>
+
 			  </div>
 			</div>
 			)
-	
+
 }
+
 function mapStateToProps(state){
 	return {
-		data:state.seven,
-
+		data:state.seven
 	}
 
 }
-
 // Connect your component with redux
- export default connect(mapStateToProps, actions)(Pageseven)
+export default compose(
+  withStyles(styles),
+  connect(mapStateToProps,actions)
+  )(Pageseven)

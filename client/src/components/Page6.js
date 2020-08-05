@@ -115,18 +115,7 @@ function Pagesix(props){
 			   </div>
 
 			}
-			   <label>What are your top financial ambitions in life?< span className='required'>*</span></label>
-			   <TextField
-			   className={classes.container}
-                  id="outlined-multiline-static"
-                  multiline
-                 rowsMax={4}
-                 variant="outlined"
-                 name='financialAmbitions'
-                 inputRef={register({required:true})}
-                 defaultValue={props.data.financialAmbitions}
-
-        />
+			  
                <button className='next prev'>Next</button>
 			   </form>
 			  <button className='next' onClick={props.handleBack}>Prev</button>

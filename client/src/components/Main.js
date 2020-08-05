@@ -9,6 +9,7 @@ import Pagethree from './Page3.js'
 import Pagefour from './Page4.js'
 import Pagefive from './Page5.js'
 import Pagesix from './Page6.js'
+import Pageeight from './Page8.js'
 import Pageseven from './Page7.js'
 import Message from './EndMessage.js'
 import * as actions from '../redux/actions/index.js'
@@ -16,7 +17,7 @@ import * as actions from '../redux/actions/index.js'
 
 //this function shows up the number of steps to complete the multi-step form
 function getSteps() {
-  return ['step 1', 'step 2', 'step 3','step 4','step 5','step 6','step 7'];
+  return ['step 1', 'step 2', 'step 3','step 4','step 5','step 6','step 7','step 8'];
 }
 
 
@@ -40,6 +41,8 @@ function Main(props){
      return <Pagesix handleBack={handleBack} handleNext={handleNext}/>;
       case 6:
      return <Pageseven handleBack={handleBack} handleNext={handleNext}/>;
+     case 7:
+     return <Pageeight handleBack={handleBack} handleNext={handleNext}/>;
     default:
       return 'Unknown stepIndex';
   }
@@ -59,15 +62,6 @@ function Main(props){
     const handleBack = () => {
     setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
- const Reset=()=>{
-  //console.log('data sent')
- 
-  //this resets all the data back to empty strings
-  props.reset()
-  //we send it back to the first step
-  setActiveStep(0)
- }
-
 
 	return(
 		<div className='container'>

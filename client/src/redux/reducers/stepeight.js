@@ -5,29 +5,33 @@
 //action type
 
 const initialState ={
-	savingReason:'',
-	savingWay:'',
-	emergencyFund:'',
-	nosavingReason:'',
-	inspirationToSave:'',
-	preferrablemeansToSave:''
+	fullnames:'',
+	phonenumber:'',
+	birthDate:{
+		day:'',
+		month:'',
+		year:''
+	},
+	email:''
 }
 
 export default (state=initialState,action)=>{
 	switch(action.type){
-		case 'stepthree':
+		case 'stepeight':
 		//console.log('got it')
 		return {
 			...state,
-			savingReason:action.payload.savingReason,
-			savingWay:action.payload.savingWay,
-			emergencyFund:action.payload.emergencyFund,
-			nosavingReason:action.payload.nosavingReason,
-			inspirationToSave:action.payload.inspirationToSave,
-			preferrablemeansToSave:action.payload.preferrablemeansToSave
+			fullnames:action.payload.fullnames,
+			phonenumber:action.payload.phonenumber,
+			birthDate:{
+				day:action.payload.day,
+				month:action.payload.month,
+				year:action.payload.year
+			},
+			email:action.payload.email
 		}
 		
-		default :
+		default:
 		return state
 	}
 }
