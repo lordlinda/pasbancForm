@@ -11,7 +11,9 @@ class EndMessage extends Component{
 	render(){
 		return (
 			 <div className='content message'>
-			 Thank you for your best cooperation on this,your answers to these questions  provides the basic vital information that is key to working with us
+			 Thankyou for your honest cooperation in this, your answers
+			  are key to unlocking the best way to create and manage wealth for everyone.
+              <br />We hope to get in touch with you soon. Your blessed.
 			  </div>
 			)
 	}

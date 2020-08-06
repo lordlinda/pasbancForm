@@ -7,11 +7,7 @@
 const initialState ={
 	fullnames:'',
 	phonenumber:'',
-	birthDate:{
-		day:'',
-		month:'',
-		year:''
-	},
+	yearOfBirth:'',
 	email:''
 }
 
@@ -23,11 +19,7 @@ export default (state=initialState,action)=>{
 			...state,
 			fullnames:action.payload.fullnames,
 			phonenumber:action.payload.phonenumber,
-			birthDate:{
-				day:action.payload.day,
-				month:action.payload.month,
-				year:action.payload.year
-			},
+			yearOfBirth:action.payload.year,
 			email:action.payload.email
 		}
 		

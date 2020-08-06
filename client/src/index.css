@@ -18,11 +18,11 @@ code {
 .title{
 	padding:0px 65px;
 }
-/*this 20% is very key for the content to have an equal padding on bith sides
+/*this 15% is very key for the content to have an equal padding on bith sides
 if you change it the labels and input will start to be on the same time destroying the alignement*/
 .content{
-	padding:0 17%;
-	width:60%;
+	padding:0 15%;
+	width:69%;
 }
 label{
 	line-height:22px;
@@ -99,58 +99,38 @@ for our user,since they are for one question,they should be closer so i reduced 
 /*this is for the message just before submission and at the top of the first page*/
 .message{
 	line-height: 27px;
-	font-size:20px;
+	font-size:18px;
 	margin-bottom:30px;
+}
+span .block{
+	display:block;
 }
 
 .aspirations{
 	margin:20px;
 }
+/*this is the asterix near a question to show that it is required*/
 .required{
 	color:red;
 	font-size:18px;
 }
-
+/*these are descriptions explaining a question further to offer guidance on answer*/
 .description{
-	font-size:12px;
+	font-size:13px;
 	margin:50px 0px;
+	font-family: 'Playfair Display', serif;
 }
 
-/*this is the styles for our date of birth*/
-.birthdate{
-	display:grid;
-	grid-template-columns:70px 100px 150px;
-	grid-gap: 5px;
-	margin: 20px 0px
-}
 
-.custom-select select {
-    font-size: 16px;
-    font-family: sans-serif;
-    font-weight: 700;
-    color: #444;
-    line-height: 1.3;
-    padding: .6em 1.4em .3em .8em;
-    width: 100%;
-    max-width: 100%; /* useful when width is set to anything other than 100% */
-    box-sizing: border-box;
-    margin: 0;
-    border: 1px solid #aaa;
-    border-radius: .5em;
-    -moz-appearance: none;
-    -webkit-appearance: none;
-    appearance: none;
-    background-color: #fff;
-}
 
-.date{
+/*.date{
 	 font-family: sans-serif;
     font-weight: 700;
     color: #444;
     line-height: 1.3;
     padding: .6em 1.3em .5em .8em;
     width: 100%;
-    max-width: 100%; /* useful when width is set to anything other than 100% */
+    max-width: 100%; 
     box-sizing: border-box;
     margin: 0;
     border: 1px solid #aaa;
@@ -159,29 +139,18 @@ for our user,since they are for one question,they should be closer so i reduced 
     -webkit-appearance: none;
     appearance: none;
     background-color: #fff;
-}
+}*/
 
 .year{
-	width:50%;
+	display: grid;
+    grid-template-columns: 1fr 2fr;
 }
-.day{
-	width:100%;
+.label{
+    margin-block-start: auto;
+
 }
 
- .custom-option {
-     position: relative;
-     display: block;
-     padding: 0 18px 0 18px;
-     font-size: 12px;
-     font-weight: 300;
-     cursor: pointer;
-     color:#000;
-     background-color:#fff;
-}
- 
- .custom-option:hover{
- 	background-color:red;
- }
+
 
 
 
@@ -253,12 +222,15 @@ input{
 .prev{
 	margin-bottom: -39px
 }
-.birthdate{
-	display:grid;
-	grid-template-columns:100px 190px 190px;
-	grid-gap: 10px;
-	margin: 20px 0px
+.year{
+	display: grid;
+    grid-template-columns:1fr 2fr;
 }
+.label{
+    margin:50px 20px 10px 0px;
+
+}
+
 }
 
 
@@ -326,4 +298,13 @@ input{
 .prev{
 	margin-bottom: -32px
 }
+.year{
+	display: grid;
+    grid-template-columns: 1fr 2fr;
+}
+.label{
+    margin:30px 20px 10px 0px;
+
+}
+
 }

@@ -24,9 +24,11 @@ function Pageone(props){
 		return (
 			<div >
 			  <div className='content'>
-			  <div className='message'> In the bead to serve you better, it's best we know certain facts about each other.
-               At pasbanc, we believe that everybody should be able to create & manage wealth. So we are crafting a solution that will enable you do just that, we are making for you the best way to create & manage wealth. 
-               And the first step to this great cause is this very information Please enjoy</div>
+			  <div className='message'> 
+        At pasbanc we believe that everyone should be able to create & manage wealth, and we want to make the best way for everyone to do just that.
+       <br />But this requires some specific knowledge about what must be addressed to make it possible.<br />
+        However, you filling us in with some basic information is a very big step towards getting it done. Please enjoy
+               </div>
 			<form onSubmit={handleSubmit(onSubmit)} autoComplete='off'>
 			{/*Each field is required to have a unique name*/}
 			   
