@@ -51,7 +51,7 @@ function Pageeight(props){
 			<input type="number"  name='year' ref={register({required:true})}></input>
 		</div>
 	
-			   <label>Email< span className='required'>*</span></label>
+			   <label>Email</label>
 			   <input
 			   type='email'
 			   name='email'
