@@ -56,7 +56,7 @@ function Pageeight(props){
 			   type='email'
 			   name='email'
 			   defaultValue={props.data.email}
-			   ref={register({required:true,pattern:/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/})}
+			   ref={register({pattern:/^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/})}
 			   />
 			   {errors.email && <span className='error'>Please input a valid email</span>}
 

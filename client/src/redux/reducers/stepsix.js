@@ -10,7 +10,8 @@ const initialState ={
 	noinsuranceReason:'',
 	inspirationForInsurance:'',
 	insurancePaymentWay:'',
-	retirement:''
+	retirement:'',
+	retirementIdeas:''
 }
 
 export default (state=initialState,action)=>{
@@ -25,7 +26,8 @@ export default (state=initialState,action)=>{
 			noinsuranceReason:action.payload.noinsuranceReason,
 			inspirationForInsurance:action.payload.inspirationForInsurance,
 			financialAmbitions:action.payload.financialAmbitions,
-			retirement:action.payload.retirement
+			retirement:action.payload.retirement,
+			retirementIdeas:action.payload.retirementIdeas
 		}
 		
 		default :

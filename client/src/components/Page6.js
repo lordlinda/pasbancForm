@@ -34,7 +34,7 @@ function Pagesix(props){
 			{
 				props.insurance === 'yes' ?
 				<div>
-			   <label>What inspired you to have any insurance policy?
+			   <label>Why did you buy your insurance policy?
 			   < span className='required'>*</span></label>
 			   <span className='description'>Why insure?</span>
 			   <TextField
@@ -48,15 +48,19 @@ function Pagesix(props){
 			   defaultValue={props.data.insuranceReason}
 			   inputRef={register({required:true})}
 			   />
-
-			   <label>What would you insure that insurance packages don't cover yet to date?< span className='required'>*</span></label>
+			    <label>Which means do you use to finance your insurance?
+			    < span className='required'>*</span></label>
+			     <span className='description'>Insurance company, the bank, an app, cooperative, a group or ??</span>
 			   <input
 			   type='text'
 			   name='insurancePaymentWay'
 			   defaultValue={props.data.insurancePaymentWay}
 			   ref={register({required:true})}
 			   />
-			   <label>How do you think today's insurance can be improved to serve you better?< span className='required'>*</span></label>
+
+			   <label>How do you think today's insurance can be improved to serve you better?
+			   < span className='required'>*</span></label>
+			   <span className='description'>you can also include things you wish could be insured but aren't yet</span>
 			   <TextField
 			   className={classes.container}
 			   type='text'
@@ -67,6 +71,14 @@ function Pagesix(props){
 			   name='extraInsuranceOptions'
 			   defaultValue={props.data.extraInsuranceOptions}
 			   inputRef={register({required:true})}
+			   />
+			    <label>Finally, How about retirement, what is your position about it?
+			   < span className='required'>*</span></label>
+			   <input
+			   type='text'
+			   name='retirementIdeas'
+			   defaultValue={props.data.notCoveredInsuranceOptions}
+			   ref={register({required:true})}
 			   />
 			   </div>
 				:
@@ -98,7 +110,7 @@ function Pagesix(props){
 			   defaultValue={props.data.inspirationForInsurance}
 			   inputRef={register({required:true})}
 			   />
-			    <label>How about retirement, what thoughts do you have about it
+			    <label>Finally, How about retirement, what is your position about it
 			   ?< span className='required'>*</span></label>
 			   <TextField
 			   className={classes.container}
@@ -115,7 +127,6 @@ function Pagesix(props){
 			   </div>
 
 			}
-			  
                <button className='next prev'>Next</button>
 			   </form>
 			  <button className='next' onClick={props.handleBack}>Prev</button>
