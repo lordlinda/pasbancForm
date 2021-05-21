@@ -39,9 +39,9 @@ function Pageeight(props){
 			   ref={register({required:true})}
 			   />
 
-			   <label>Phone number < span className='required'>*</span></label>
+			   <label>Phone numbers < span className='required'>*</span></label>
 			   <input
-			   type='number'
+			   type='text'
 			   name='phonenumber'
 			   defaultValue={props.data.phonenumber}
 			   ref={register({required:true})}
